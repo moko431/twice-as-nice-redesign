@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twice As Nice | Betaalbare juwelen sinds 1980</title>
+<!--
+  BrightBox redesign-voorstel, juni 2026. Pitch-materiaal, geen productiecode.
+  Afbeeldingen laden live van de Tilroy CDN van Twice As Nice (internet nodig).
+  Sandbox was niet beschikbaar; assets konden niet lokaal gekopieerd worden.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c1b1a;
+  --paper:#ffffff;
+  --sand:#f6f3ef;
+  --accent:#da532c;       /* uit de eigen site-config (browserconfig tile color) */
+  --accent-dark:#b8401f;
+  --line:#e6e1da;
+  --muted:#6f6a64;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:clip}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.15;font-weight:700}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+
+/* topbar */
+.topbar{background:var(--ink);color:#fff;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;min-height:36px;gap:16px}
+.topbar span b{color:#fff}
+.topbar .right a{margin-left:18px;opacity:.85}
+.topbar .right a:hover{opacity:1;text-decoration:underline}
+@media(max-width:640px){.topbar .right{display:none}}
+
+/* header */
+header.site{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:50}
+.head-main{display:flex;align-items:center;gap:clamp(16px,3vw,40px);padding:14px 0}
+.logo img{height:46px;width:auto;mix-blend-mode:multiply}
+.search{flex:1;display:flex;max-width:520px}
+.search input{flex:1;border:1.5px solid var(--line);border-right:none;border-radius:3px 0 0 3px;padding:10px 14px;font:inherit;font-size:14px}
+.search input:focus{outline:none;border-color:var(--ink)}
+.search button{border:none;background:var(--ink);color:#fff;padding:0 18px;border-radius:0 3px 3px 0;cursor:pointer}
+.head-icons{display:flex;gap:18px;margin-left:auto;align-items:center}
+.head-icons a{display:flex;flex-direction:column;align-items:center;font-size:11px;gap:2px;color:var(--muted)}
+.head-icons a:hover{color:var(--ink)}
+.head-icons svg{width:22px;height:22px}
+nav.main{border-top:1px solid var(--line)}
+nav.main ul{display:flex;gap:clamp(14px,2.5vw,30px);list-style:none;overflow-x:auto;padding:0 0 0 0}
+nav.main a{display:block;padding:11px 0;font-size:14px;font-weight:600;white-space:nowrap;border-bottom:2.5px solid transparent}
+nav.main a:hover{border-color:var(--ink)}
+nav.main a.hot{color:var(--accent)}
+@media(max-width:780px){.search{display:none}.head-icons a span{display:none}}
+
+/* hero */
+.hero{background:var(--sand)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:center;padding-top:clamp(32px,6vw,72px);padding-bottom:clamp(32px,6vw,72px)}
+.hero .eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.hero h1{font-size:clamp(30px,4.6vw,54px);font-weight:800;letter-spacing:-.01em}
+.hero p.lead{margin:18px 0 28px;font-size:clamp(15px,1.4vw,18px);color:var(--muted);max-width:46ch}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:14px 26px;border-radius:3px;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.hero-visual{position:relative}
+.hero-visual .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero-visual .card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:18px;text-align:left}
+.hero-visual .card img{aspect-ratio:1;object-fit:contain}
+.hero-visual .card .nm{font-size:13px;font-weight:600;margin-top:10px}
+.hero-visual .card .pr{color:var(--accent);font-weight:700;font-size:15px}
+.hero-badge{position:absolute;top:-14px;right:-6px;background:var(--ink);color:#fff;font-family:'Archivo';font-weight:700;font-size:12px;padding:8px 14px;border-radius:3px;letter-spacing:.06em}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-visual{max-width:440px}}
+
+/* usp bar */
+.uspbar{background:var(--ink);color:#fff}
+.uspbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:18px;padding-bottom:18px}
+.usp{display:flex;gap:12px;align-items:center;font-size:13.5px}
+.usp svg{width:26px;height:26px;flex:none;stroke:var(--accent)}
+.usp b{display:block;font-size:14px}
+@media(max-width:900px){.uspbar .wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.uspbar .wrap{grid-template-columns:1fr;gap:10px}}
+
+/* sections */
+section{padding:clamp(40px,7vw,84px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(22px,3vw,36px)}
+.sec-head h2{font-size:clamp(22px,3vw,34px);letter-spacing:-.01em}
+.sec-head .eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.sec-head a.all{font-weight:600;font-size:14px;color:var(--accent);white-space:nowrap}
+.sec-head a.all:hover{text-decoration:underline}
+
+/* category grid */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{background:var(--sand);border:1px solid var(--line);border-radius:4px;padding:28px 20px;text-align:center;transition:.15s}
+.cat:hover{border-color:var(--ink);transform:translateY(-2px)}
+.cat svg{width:44px;height:44px;margin:0 auto 14px;stroke:var(--ink)}
+.cat h3{font-size:16px}
+.cat span{font-size:13px;color:var(--muted)}
+@media(max-width:780px){.cats{grid-template-columns:repeat(2,1fr)}}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;transition:.15s}
+.prod:hover{border-color:var(--ink)}
+.prod .ph{background:var(--sand);aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:14px}
+.prod .ph img{object-fit:contain;max-height:100%;mix-blend-mode:multiply}
+.prod .ph.svgph svg{width:60%;height:60%;stroke:#c9c2b8}
+.prod .info{padding:14px 16px 18px}
+.prod .info .nm{font-size:13.5px;font-weight:500;min-height:2.6em}
+.prod .info .pr{font-family:'Archivo';font-weight:700;color:var(--ink);margin-top:6px}
+.prod .info .pr small{color:var(--muted);font-weight:400}
+.prod .tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:2px;margin-bottom:8px;letter-spacing:.04em}
+@media(max-width:780px){.prods{grid-template-columns:repeat(2,1fr)}}
+
+/* piercing section */
+.pierce{background:var(--sand)}
+.pierce .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);align-items:center}
+.pierce h2{font-size:clamp(22px,3vw,34px);margin-bottom:16px}
+.pierce ul{list-style:none;margin:18px 0 26px;display:grid;gap:12px}
+.pierce li{display:flex;gap:12px;align-items:start;font-size:15px}
+.pierce li svg{width:20px;height:20px;flex:none;stroke:var(--accent);margin-top:3px}
+.pierce .panel{background:var(--ink);color:#fff;border-radius:4px;padding:clamp(24px,3vw,40px)}
+.pierce .panel h3{font-size:20px;margin-bottom:14px}
+.pierce .panel p{font-size:14px;opacity:.9;margin-bottom:10px}
+.pierce .panel .big{font-family:'Archivo';font-size:clamp(28px,3vw,40px);font-weight:800;color:var(--accent);line-height:1}
+@media(max-width:860px){.pierce .wrap{grid-template-columns:1fr}}
+
+/* stores / proof */
+.proofgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proof{border:1px solid var(--line);border-radius:4px;padding:26px}
+.proof .num{font-family:'Archivo';font-size:34px;font-weight:800;color:var(--accent)}
+.proof p{font-size:14px;color:var(--muted);margin-top:6px}
+@media(max-width:780px){.proofgrid{grid-template-columns:1fr}}
+
+/* newsletter */
+.nieuwsbrief{background:var(--ink);color:#fff}
+.nieuwsbrief .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.nieuwsbrief h2{font-size:clamp(22px,3vw,32px)}
+.nieuwsbrief p{opacity:.85;margin-top:10px;font-size:15px}
+.nl-form{display:flex;gap:0}
+.nl-form input{flex:1;padding:14px 16px;border:none;border-radius:3px 0 0 3px;font:inherit}
+.nl-form button{border:none;background:var(--accent);color:#fff;font-family:'Archivo';font-weight:700;padding:0 24px;border-radius:0 3px 3px 0;cursor:pointer}
+.nl-form button:hover{background:var(--accent-dark)}
+@media(max-width:780px){.nieuwsbrief .wrap{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--sand);border-top:1px solid var(--line);padding:clamp(36px,5vw,64px) 0 28px;font-size:14px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:36px}
+.foot-grid h4{font-size:14px;margin-bottom:12px}
+.foot-grid ul{list-style:none;display:grid;gap:8px;color:var(--muted)}
+.foot-grid a:hover{color:var(--ink);text-decoration:underline}
+.foot-grid .logo img{height:40px;margin-bottom:12px;mix-blend-mode:multiply}
+.foot-bottom{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
+@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Gratis levering vanaf <b>â‚¬40</b> in de Benelux Â· Voor 14u besteld, vandaag verzonden (ma-vr)</span>
+    <span class="right">
+      <a href="https://www.twiceasnice.com/nl/shop/list">Onze winkels</a>
+      <a href="https://www.twiceasnice.com/nl/gaatjes-schieten/">Gaatjes schieten</a>
+      <a href="https://www.twiceasnice.com/nl/customer/contact/">Contact</a>
+    </span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap head-main">
+    <a class="logo" href="#"><img src="https://tilroy.s3.eu-west-1.amazonaws.com/138/logo/2026-jpg-300DPI.jpg" alt="Twice As Nice"></a>
+    <form class="search" role="search">
+      <input type="search" placeholder="Zoek oorbellen, kettingen, armbanden...">
+      <button aria-label="Zoeken"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+    </form>
+    <div class="head-icons">
+      <a href="https://www.twiceasnice.com/nl/shop/list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Winkels</span></a>
+      <a href="https://www.twiceasnice.com/nl/customer/wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21l-8.2-8.2a5 5 0 0 1 7-7l1.2 1.1 1.2-1.1a5 5 0 0 1 7 7z"/></svg><span>Wishlist</span></a>
+      <a href="https://www.twiceasnice.com/nl/customer/login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>Account</span></a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 7h12l1 14H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span>Mandje</span></a>
+    </div>
+  </div>
+  <nav class="main"><div class="wrap">
+    <ul>
+      <li><a class="hot" href="https://www.twiceasnice.com/nl/salted-hearts-collectie">Salted Hearts</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/nieuwe-collectie">Nieuw</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/bestsellers">Bestsellers</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/juwelen">Vrouwen</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/mannen-juwelen">Mannen</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/kinderjuwelen">Kinderen</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/content/collecties/">Collecties</a></li>
+      <li><a href="https://www.twiceasnice.com/nl/product/giftvoucher">Cadeaubon</a></li>
+    </ul>
+  </div></nav>
+</header>
+
+<!-- HERO: merkverhaal + duidelijke acties boven de vouw -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Antwerps juwelenmerk sinds 1980</div>
+      <h1>Juwelen die je elke dag draagt. Prijzen die dat ook toelaten.</h1>
+      <p class="lead">Trendy juwelen vanaf â‚¬6, ontworpen in Antwerpen. Online besteld of gepast in een van onze 55+ winkels in de Benelux. Gratis afhalen en retourneren in de winkel.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://www.twiceasnice.com/nl/nieuwe-collectie">Shop de nieuwe collectie</a>
+        <a class="btn btn-ghost" href="https://www.twiceasnice.com/nl/shop/list">Vind een winkel</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-badge">SPRING-SUMMER 2026</div>
+      <div class="duo">
+        <a class="card" href="https://www.twiceasnice.com/nl/halsketting-met-kruis-in-edelstaal-twice-as-nice-kfu0003974?colour=768028">
+          <img src="https://prosteps.cloudimg.io/v7m/resizeinbox/600x600/fsharp0/https://tilroy.s3.eu-west-1.amazonaws.com/138/product/KS60FU0004091.jpg" alt="Halsketting met kruisje in zilverkleurig edelstaal">
+          <div class="nm">Halsketting kruisje, zilverkleurig</div>
+          <div class="pr">â‚¬ 25</div>
+        </a>
+        <a class="card" href="https://www.twiceasnice.com/nl/halsketting-met-kruis-in-edelstaal-twice-as-nice-kfu0003974?colour=768028">
+          <img src="https://prosteps.cloudimg.io/v7m/resizeinbox/600x600/fsharp0/https://tilroy.s3.eu-west-1.amazonaws.com/138/product/KG60FU0004092.jpg" alt="Halsketting met kruisje in goudkleurig edelstaal">
+          <div class="nm">Halsketting kruisje, goudkleurig</div>
+          <div class="pr">â‚¬ 25</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USP-BAR: de troeven uit de footer, nu boven de vouw -->
+<div class="uspbar">
+  <div class="wrap">
+    <div class="usp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M3 7h13v10H3z"/><path d="M16 10h4l1 3v4h-5"/><circle cx="7" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/></svg><span><b>Gratis verzending vanaf â‚¬40</b>in de hele Benelux</span></div>
+    <div class="usp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><b>55+ winkels in de Benelux</b>gratis afhalen en retourneren</span></div>
+    <div class="usp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span><b>Voor 14u besteld</b>vandaag verzonden (ma-vr)</span></div>
+    <div class="usp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg><span><b>Veilig online betalen</b>Bancontact, KBC, PayPal, Visa</span></div>
+  </div>
+</div>
+
+<!-- CATEGORIEÃ‹N: snel naar wat je zoekt -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Ons aanbod</div><h2>Waar ben je naar op zoek?</h2></div>
+      <a class="all" href="https://www.twiceasnice.com/nl/juwelen">Alle juwelen â†’</a>
+    </div>
+    <div class="cats">
+      <a class="cat" href="https://www.twiceasnice.com/nl/juwelen/oorbellen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 4a4 4 0 1 0-4 4"/><circle cx="12" cy="15" r="4.5"/></svg>
+        <h3>Oorbellen</h3><span>Studs, creolen en earcuffs</span>
+      </a>
+      <a class="cat" href="https://www.twiceasnice.com/nl/juwelen/halskettingen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4c0 7 3.5 10 8 10s8-3 8-10"/><path d="M12 14v3"/><circle cx="12" cy="19" r="2"/></svg>
+        <h3>Halskettingen</h3><span>Met of zonder hanger</span>
+      </a>
+      <a class="cat" href="https://www.twiceasnice.com/nl/juwelen/armbanden">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="5"/></svg>
+        <h3>Armbanden</h3><span>Ook voor mannen en kids</span>
+      </a>
+      <a class="cat" href="https://www.twiceasnice.com/nl/juwelen/ringen">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="14" r="6"/><path d="M9 8l3-4 3 4"/></svg>
+        <h3>Ringen</h3><span>Fijn tot chunky</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NIEUW / MIX & MATCH -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Nieuw binnen</div><h2>Mix & match hangers vanaf â‚¬6</h2></div>
+      <a class="all" href="https://www.twiceasnice.com/nl/collecties/mixandmatch">Bekijk alles â†’</a>
+    </div>
+    <div class="prods">
+      <a class="prod" href="https://www.twiceasnice.com/nl/hanger-in-edelstaal-zeepaardje-twice-as-nice-hfu0001488?colour=768026">
+        <div class="ph svgph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><path d="M13 3c4 1 6 4 6 8 0 5-3 9-8 10 2-2 2-4 1-5-3 1-7-1-7-5 0-3 2-5 5-5 1-2 2-3 3-3z"/><circle cx="13" cy="7" r=".8"/></svg></div>
+        <div class="info"><span class="tag">NIEUW</span><div class="nm">Hanger in edelstaal, zeepaardje</div><div class="pr">â‚¬ 12</div></div>
+      </a>
+      <a class="prod" href="https://www.twiceasnice.com/nl/hanger-dolfijn-in-edelstaal-twice-as-nice-hfu0001479?colour=768026">
+        <div class="ph svgph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><path d="M3 14c3-6 9-8 14-6l3-3-1 5c2 3 1 6-2 8-4 2-10 1-14-4z"/></svg></div>
+        <div class="info"><span class="tag">NIEUW</span><div class="nm">Hanger in edelstaal, dolfijn</div><div class="pr">â‚¬ 12</div></div>
+      </a>
+      <a class="prod" href="https://www.twiceasnice.com/nl/hanger-in-edelstaal-schelp-twice-as-nice-hfu0001487?colour=768026">
+        <div class="ph svgph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><path d="M12 4C7 4 4 8 4 13c0 4 3 7 8 7s8-3 8-7c0-5-3-9-8-9z"/><path d="M12 4v16M8 5.5L10 20M16 5.5L14 20"/></svg></div>
+        <div class="info"><span class="tag">NIEUW</span><div class="nm">Hanger in edelstaal, schelp</div><div class="pr">â‚¬ 6</div></div>
+      </a>
+      <a class="prod" href="https://www.twiceasnice.com/nl/armband-in-edelstaal-met-zwart-leer-twice-as-nice-afu0002871?colour=768028">
+        <div class="ph svgph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="4" r="1.2"/></svg></div>
+        <div class="info"><div class="nm">Armband edelstaal en zwart leer, mannen</div><div class="pr">â‚¬ 39</div></div>
+      </a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">Productfoto's laden in dit voorstel als illustratie; in de echte build tonen we hier de eigen productfotografie, server-side gerenderd zodat Google en AI-zoekmachines ze ook zien.</p>
+  </div>
+</section>
+
+<!-- GAATJES SCHIETEN: de service als funnel -->
+<section class="pierce">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Alleen in de winkel</div>
+      <h2>Gaatjes laten schieten? Dat doe je bij ons.</h2>
+      <p style="color:var(--muted)">Veilig met het Studex-systeem, in 29 winkels. Je betaalt alleen de schietoorbellen, niet het schieten zelf.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Vanaf 6 jaar, onder 18 met ouder of voogd erbij</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Studex-systeem, maximaal het tweede gaatje, nooit kraakbeen</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Naverzorgingsinstructies krijg je mee naar huis</li>
+      </ul>
+      <a class="btn btn-primary" href="https://www.twiceasnice.com/nl/shop/list/">Vind een winkel die gaatjes schiet</a>
+    </div>
+    <div class="panel">
+      <h3>Wat kost het?</h3>
+      <p>Je kiest je schietoorbellen, wij schieten gratis.</p>
+      <div class="big">â‚¬20 tot â‚¬39</div>
+      <p style="margin-top:14px">Enkel op weekdagen. Bel je favoriete winkel voor een afspraak.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEWIJS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Waarom Twice As Nice</div><h2>Veertig jaar juwelen uit Antwerpen</h2></div></div>
+    <div class="proofgrid">
+      <div class="proof"><div class="num">40+</div><b>jaar vakmanschap</b><p>Gestart in het hart van Antwerpen, vandaag een vaste waarde in fashion jewelry.</p></div>
+      <div class="proof"><div class="num">55+</div><b>winkels in de Benelux</b><p>Passen, afhalen en retourneren waar jij winkelt, van Antwerpen tot Utrecht.</p></div>
+      <div class="proof"><div class="num">â‚¬6</div><b>instapprijs</b><p>Trendy juwelen voor elk budget, elke week nieuwe stukken in de collectie.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NIEUWSBRIEF met reden -->
+<section class="nieuwsbrief">
+  <div class="wrap">
+    <div>
+      <h2>Als eerste de nieuwe collectie zien?</h2>
+      <p>Schrijf je in en ontvang nieuwe collecties, winkelacties en stylingtips in je mailbox. Uitschrijven kan altijd.</p>
+    </div>
+    <form class="nl-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Ingeschreven âœ“'">
+      <input type="email" required placeholder="jouw@email.be" aria-label="E-mailadres">
+      <button type="submit">Inschrijven</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="logo">
+        <img src="https://tilroy.s3.eu-west-1.amazonaws.com/138/logo/2026-jpg-300DPI.jpg" alt="Twice As Nice">
+        <p style="color:var(--muted)">Prins Boudewijnlaan 21G<br>2550 Kontich, BelgiÃ«<br>BE 0420 917 048</p>
+      </div>
+      <div><h4>Over ons</h4><ul>
+        <li><a href="https://www.twiceasnice.com/nl/content/info/">Het merk</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/shop/list/">Onze winkels</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/gaatjes-schieten/">Gaatjes schieten</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/content/jobs/">Jobs</a></li>
+      </ul></div>
+      <div><h4>Service</h4><ul>
+        <li><a href="https://www.twiceasnice.com/nl/content/faq">FAQ</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/content/ring-sizes/">Maattabel</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/content/returns">Terugzending</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/customer/contact/">Contact</a></li>
+      </ul></div>
+      <div><h4>Shop</h4><ul>
+        <li><a href="https://www.twiceasnice.com/nl/nieuwe-collectie">Nieuw</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/juwelen">Vrouwen</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/mannen-juwelen">Mannen</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/kinderjuwelen">Kinderen</a></li>
+        <li><a href="https://www.twiceasnice.com/nl/product/giftvoucher">Cadeaubon</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>Â© 2026 Twice As Nice Â· <a href="https://www.twiceasnice.com/nl/content/privacy-policy/">Privacy</a> Â· <a href="https://www.twiceasnice.com/nl/content/algemene-voorwaarden">Voorwaarden</a></span>
+      <span>Redesign-voorstel door BrightBox, juni 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
